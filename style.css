@@ -73,9 +73,28 @@ header, section {
 }
 
 header img {
-    max-width: 100%;
+    width: 40%;
     height: auto;
     border-radius: 1em;
+    transition: 0.5s ease;
+    outline: rgba(255, 255, 0, 0) 6px solid;
+    cursor: pointer;
+}
+
+header img:hover {
+    outline: rgb(255, 255, 97) 6px solid;
+    scale: 1.05;
+}
+
+@media (max-width: 768px) {
+header img {
+    width: 80%;
+    height: auto;
+    border-radius: 1em;
+    transition: 0.7s ease;
+    outline: rgba(255, 255, 0, 0) 6px solid;
+    cursor: pointer;
+}  
 }
 
 .text-container {
@@ -143,11 +162,14 @@ section#my-photos {
     height: 100%;
     object-fit: cover;
     border-radius: 1em;
-    transition: ease 0.2s;
+    transition: outline 0.5s ease, scale 0.5s ease;
+    outline: rgba(0, 0, 0, 0) 3px solid;
+    cursor: pointer;
 }
 
 .grid-container img:hover{
     scale: 1.02;
+    outline: red 3px solid;
 }
 
 h2 {
@@ -157,4 +179,36 @@ h2 {
 
 .ke_sach { /* căn giữa ảnh đứng bên kệ sách */
     object-position: 11%;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7); /* nền đen 70% */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
 }
